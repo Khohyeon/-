@@ -1,19 +1,20 @@
 package shop.mtcoding.buyer.model;
 
-import java.sql.Timestamp;
+import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
+public interface ProductRepository { // CRUD
+    // Create
+    public int insert(String name, int price, int qty);
 
-public interface ProductRepository {
+    // Read
+    public List<Product> findAll();
 
-    @Setter
-    @Getter
-    public class Product {
-        private Integer id;
-        private String name;
-        private Integer price;
-        private Integer qty;
-        private Timestamp createdAt;
-    }
+    public Product findById();
+
+    // Update
+    public int updateById(int id, String name, int price, int qty);
+
+    // Delete
+    public int deleteById(int id);
+
 }
